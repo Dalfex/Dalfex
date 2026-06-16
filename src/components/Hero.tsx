@@ -19,10 +19,20 @@ export default function Hero({ lang }: { lang: Lang }) {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-8">
         <a
           href={lang === "es" ? "/es" : "/"}
-          className="text-[28px] tracking-tight text-[#051A24] md:text-[32px]"
-          style={serif}
+          className="flex items-center gap-2.5"
+          aria-label="Dalfex"
         >
-          Dalfex<sup className="text-[10px]">&reg;</sup>
+          <img
+            src="/logo-mark.svg"
+            alt=""
+            className="h-8 w-8 md:h-9 md:w-9"
+          />
+          <span
+            className="text-[28px] tracking-tight text-[#051A24] md:text-[32px]"
+            style={serif}
+          >
+            Dalfex<sup className="text-[10px]">&reg;</sup>
+          </span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -52,6 +62,11 @@ export default function Hero({ lang }: { lang: Lang }) {
       {/* Hero content */}
       <div className="mx-auto max-w-2xl px-6 pt-12 pb-16 text-center md:pt-20">
         {/* Logo mark */}
+        <img
+          src="/logo-mark.svg"
+          alt=""
+          className="mx-auto mb-5 h-14 w-14 md:h-16 md:w-16"
+        />
         <div
           className="mx-auto mb-8 text-[36px] font-semibold tracking-tight text-[#051A24] md:text-[44px] lg:text-[48px]"
           style={serif}

@@ -40,12 +40,14 @@ export default function Footer({ lang }: { lang: Lang }) {
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           {/* Brand */}
           <div>
-            <a
-              href={home}
-              className="text-2xl tracking-tight text-[#051A24]"
-              style={serif}
-            >
-              Dalfex<sup className="text-[10px]">&reg;</sup>
+            <a href={home} className="flex items-center gap-2.5" aria-label="Dalfex">
+              <img src="/logo-mark.svg" alt="" className="h-7 w-7" />
+              <span
+                className="text-2xl tracking-tight text-[#051A24]"
+                style={serif}
+              >
+                Dalfex<sup className="text-[10px]">&reg;</sup>
+              </span>
             </a>
             <p className="mt-2 max-w-xs text-sm text-[#273C46]/50">
               {tr(ui.footer.tagline1, lang)}
