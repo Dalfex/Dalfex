@@ -21,9 +21,7 @@ export default function FloatingNav({ lang }: { lang: Lang }) {
       }`}
     >
       <div className="flex items-center gap-3 rounded-full bg-[#051A24] px-2 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.25)]">
-        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white">
-          <img src="/logo-glyph.svg" alt="" className="h-5 w-5" />
-        </div>
+        <img src="/logo-mark-light.svg" alt="" className="h-9 w-9 rounded-[10px]" />
         <a
           href="#contact"
           className="flex items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-medium text-[#051A24] transition-colors hover:bg-[#F6FCFF]"
