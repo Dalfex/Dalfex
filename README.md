@@ -1,43 +1,74 @@
-# Astro Starter Kit: Minimal
+# Dalfex Landing
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Company landing page and portfolio showcase for **Dalfex** — the software studio
+behind DaLynk, DaClipLab, DazzHabit and more.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Built with [Astro](https://astro.build) (static output) + React islands +
+Tailwind CSS 4, deployed as a static site.
 
-## 🚀 Project Structure
+- **Live:** https://dalfex.com
+- **Stack:** Astro 6, React 19, Tailwind 4, Framer Motion, lucide-react
 
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure
 
 ```text
-/
-├── public/
+landing/
+├── public/                 Static assets (fonts, favicon, images)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/         React islands (Hero, Services, Projects, ...)
+│   ├── data/
+│   │   └── projects.ts     Single source of truth for the project list
+│   ├── hooks/              Shared React hooks (in-view animation)
+│   ├── layouts/
+│   │   └── Layout.astro    Base HTML shell
+│   ├── pages/
+│   │   └── index.astro     The one-page site
+│   └── styles/
+│       └── global.css      Tailwind entry + global tokens
+└── astro.config.mjs
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The site is a single page composed of React islands hydrated with Astro's
+`client:load` / `client:visible` directives.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Showing / hiding projects
 
-Any static assets, like images, can be placed in the `public/` directory.
+Every project on the site comes from one file: **`src/data/projects.ts`**.
+Each entry has an `enabled` flag that controls its visibility everywhere — the
+"What we build" list, the "Selected work" cards, and the project count in the
+section heading. Disabled projects are never shipped in the build.
 
-## 🧞 Commands
+```ts
+// src/data/projects.ts
+{
+  enabled: false,   // <- flip to true to show it again
+  name: "Dancet",
+  ...
+}
+```
 
-All commands are run from the root of the project, from a terminal:
+To pause a project, set `enabled: false`. To bring it back, set `enabled: true`.
+No other file needs to change — the heading ("Three projects.") and both
+sections update automatically.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Currently **paused**: `Dancet`, `DaDaBatt` (undecided whether to continue).
 
-## 👀 Want to learn more?
+## Commands
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+All commands run from `Dalfex/landing/`. This workspace uses **pnpm**.
+
+| Command         | Action                                |
+| :-------------- | :------------------------------------ |
+| `pnpm install`  | Install dependencies                  |
+| `pnpm dev`      | Start dev server at `localhost:4321`  |
+| `pnpm build`    | Build the static site to `./dist/`    |
+| `pnpm preview`  | Preview the production build locally   |
+
+## Deployment
+
+Static output (`dist/`) — host anywhere that serves static files.
+
+**Vercel (recommended):** framework is auto-detected (Astro). Build command
+`pnpm build`, output directory `dist`. Connect the `Dalfex/Dalfex` GitHub repo
+or run `vercel` from this folder. The custom domain `dalfex.com` is configured
+in the Vercel project settings.

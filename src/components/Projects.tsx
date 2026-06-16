@@ -1,63 +1,6 @@
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
 import { ArrowUpRight } from "lucide-react";
-
-const projects = [
-  {
-    name: "DaLynk",
-    subtitle: "Business Management Platform",
-    description:
-      "Modular multi-tenant SaaS for Colombian businesses. E-commerce, clinic booking, WhatsApp integration, payments — one dashboard.",
-    tags: ["Next.js", "NestJS", "PostgreSQL"],
-    status: "In Development",
-    color: "#051A24",
-    image:
-      "https://motionsites.ai/assets/hero-datacore-booking-preview-B3t9SRK6.gif",
-  },
-  {
-    name: "DaClipLab",
-    subtitle: "AI-Powered Shorts Factory",
-    description:
-      "Turn any idea into polished short-form videos. Automated pipeline from script to render with AI generation, channel management, and autopilot mode.",
-    tags: ["FastAPI", "Next.js", "AI/ML", "Video Processing"],
-    status: "In Development",
-    color: "#0D212C",
-    image:
-      "https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif",
-  },
-  {
-    name: "Dancet",
-    subtitle: "Social Discovery for Dancers",
-    description:
-      "Find your perfect dance partner at bars and clubs. Real-time matching by skill, style, and venue location.",
-    tags: ["React Native", "Supabase", "PostGIS"],
-    status: "In Development",
-    color: "#273C46",
-    image:
-      "https://motionsites.ai/assets/hero-clubx-preview-CpKCe8yV.gif",
-  },
-  {
-    name: "DazzHabit",
-    subtitle: "Habits & Personal Finance",
-    description:
-      "Track daily habits with streaks and build financial awareness. Offline-first mobile app designed for self-improvement.",
-    tags: ["React Native", "Expo", "SQLite"],
-    status: "MVP Ready",
-    color: "#051A24",
-    image:
-      "https://motionsites.ai/assets/hero-taskora-preview-BlRBv8IU.gif",
-  },
-  {
-    name: "DaDaBatt",
-    subtitle: "Card Battle Game",
-    description:
-      "Collect cards and battle across multiple game modes. Daily rewards, leveling system, and haptic-driven gameplay in a mobile-first experience.",
-    tags: ["React Native", "Expo", "Zustand"],
-    status: "In Development",
-    color: "#0D212C",
-    image:
-      "https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif",
-  },
-];
+import { enabledProjects as projects } from "../data/projects";
 
 export default function Projects() {
   const { ref, isInView } = useInViewAnimation();

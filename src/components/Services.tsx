@@ -1,48 +1,6 @@
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
-import { Film, Building2, Smartphone, Gamepad2, Users, ArrowRight } from "lucide-react";
-
-const services = [
-  {
-    icon: Film,
-    title: "AI Video Creation",
-    accent: "next wave",
-    description:
-      "From concept to publish-ready video in minutes. Our AI platform is the next wave in content production — no editing suite, no render farm, no friction.",
-    tag: "DaClipLab",
-  },
-  {
-    icon: Building2,
-    title: "Business SaaS",
-    accent: "builders",
-    description:
-      "E-commerce, clinic scheduling, inventory, payments — modular tools for builders scaling fast in Colombia and beyond.",
-    tag: "DaLynk",
-  },
-  {
-    icon: Smartphone,
-    title: "Habit Tracking & Finance",
-    accent: "self-improvement",
-    description:
-      "Offline-first mobile app for self-improvement. Daily habit streaks, gym, meditation, and personal finance — all in your pocket.",
-    tag: "DazzHabit",
-  },
-  {
-    icon: Users,
-    title: "Social Discovery",
-    accent: "perfect partner",
-    description:
-      "Find your perfect partner for dancing at bars and clubs. Real-time matching by skill level, dance style, and venue location.",
-    tag: "Dancet",
-  },
-  {
-    icon: Gamepad2,
-    title: "Mobile Gaming",
-    accent: "collect and battle",
-    description:
-      "Collect and battle with cards across multiple game modes. Daily rewards, leveling, and haptic-driven gameplay built for mobile.",
-    tag: "DaDaBatt",
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { enabledProjects, numberWord } from "../data/projects";
 
 function HighlightText({ text, accent }: { text: string; accent: string }) {
   const parts = text.split(accent);
@@ -70,7 +28,7 @@ export default function Services() {
             What we build
           </p>
           <h2 className="max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-[#051A24]">
-            Five projects.{" "}
+            {numberWord(enabledProjects.length)} projects.{" "}
             <span style={{ fontFamily: "'PPMondwest', serif" }}>One studio.</span>{" "}
             We design, build, and ship.
           </h2>
@@ -78,9 +36,9 @@ export default function Services() {
 
         {/* Service rows */}
         <div className="divide-y divide-[#E0EBF0]">
-          {services.map((service, i) => (
+          {enabledProjects.map((service, i) => (
             <div
-              key={service.title}
+              key={service.name}
               className={`group grid grid-cols-1 gap-6 py-10 md:grid-cols-12 md:items-center md:gap-8 md:py-14 ${
                 isInView ? "animate-fade-in-up" : "opacity-0"
               }`}
@@ -99,17 +57,20 @@ export default function Services() {
               {/* Title */}
               <div className="md:col-span-3">
                 <h3 className="text-xl font-medium tracking-tight text-[#051A24] md:text-2xl">
-                  {service.title}
+                  {service.serviceTitle}
                 </h3>
                 <span className="mt-1 inline-block rounded-full bg-[#F6FCFF] px-3 py-0.5 text-[11px] font-medium uppercase tracking-wider text-[#273C46]">
-                  {service.tag}
+                  {service.name}
                 </span>
               </div>
 
               {/* Description */}
               <div className="md:col-span-6">
                 <p className="text-[15px] leading-relaxed text-[#273C46]">
-                  <HighlightText text={service.description} accent={service.accent} />
+                  <HighlightText
+                    text={service.serviceDescription}
+                    accent={service.accent}
+                  />
                 </p>
               </div>
 
