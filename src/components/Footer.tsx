@@ -1,4 +1,26 @@
-export default function Footer() {
+import LangToggle from "./LangToggle";
+import { tr, type Lang } from "../i18n/config";
+import { ui } from "../i18n/ui";
+
+const serif = { fontFamily: "'PPMondwest', serif" };
+
+export default function Footer({ lang }: { lang: Lang }) {
+  const home = lang === "es" ? "/es" : "/";
+
+  const navItems = [
+    { label: tr(ui.footer.home, lang), href: home },
+    { label: tr(ui.nav.services, lang), href: "#services" },
+    { label: tr(ui.nav.projects, lang), href: "#projects" },
+    { label: tr(ui.nav.about, lang), href: "#about" },
+  ];
+
+  const connectItems = [
+    { label: "Email", href: "mailto:hello@dalfex.com" },
+    { label: "WhatsApp", href: "https://wa.me/" },
+    { label: "GitHub", href: "https://github.com/Dalfex" },
+    { label: "LinkedIn", href: "#" },
+  ];
+
   return (
     <footer className="bg-white">
       {/* Giant watermark */}
@@ -6,7 +28,7 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <span
             className="block select-none text-[18vw] leading-[0.85] tracking-tighter text-[#051A24]/[0.04] md:text-[14vw]"
-            style={{ fontFamily: "'PPMondwest', serif" }}
+            style={serif}
           >
             Dalfex
           </span>
@@ -19,32 +41,28 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <a
-              href="/"
+              href={home}
               className="text-2xl tracking-tight text-[#051A24]"
-              style={{ fontFamily: "'PPMondwest', serif" }}
+              style={serif}
             >
               Dalfex<sup className="text-[10px]">&reg;</sup>
             </a>
             <p className="mt-2 max-w-xs text-sm text-[#273C46]/50">
-              Tech studio. Colombia.
+              {tr(ui.footer.tagline1, lang)}
               <br />
-              AI, SaaS, Mobile, Automation.
+              {tr(ui.footer.tagline2, lang)}
             </p>
+            <LangToggle lang={lang} className="mt-4" />
           </div>
 
           {/* Links */}
           <div className="flex gap-16">
             <div>
               <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-[#273C46]/30">
-                Navigate
+                {tr(ui.footer.navigate, lang)}
               </p>
               <div className="flex flex-col gap-2.5">
-                {[
-                  { label: "Home", href: "#" },
-                  { label: "Services", href: "#services" },
-                  { label: "Projects", href: "#projects" },
-                  { label: "About", href: "#about" },
-                ].map((link) => (
+                {navItems.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
@@ -57,15 +75,10 @@ export default function Footer() {
             </div>
             <div>
               <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-[#273C46]/30">
-                Connect
+                {tr(ui.footer.connect, lang)}
               </p>
               <div className="flex flex-col gap-2.5">
-                {[
-                  { label: "Email", href: "mailto:hello@dalfex.com" },
-                  { label: "WhatsApp", href: "https://wa.me/" },
-                  { label: "GitHub", href: "#" },
-                  { label: "LinkedIn", href: "#" },
-                ].map((link) => (
+                {connectItems.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
@@ -82,10 +95,10 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-12 flex flex-col items-center gap-3 border-t border-[#E0EBF0] pt-6 md:flex-row md:justify-between">
           <p className="text-[11px] text-[#273C46]/30">
-            &copy; {new Date().getFullYear()} Dalfex. All rights reserved.
+            &copy; {new Date().getFullYear()} Dalfex. {tr(ui.footer.rights, lang)}
           </p>
           <p className="text-[11px] text-[#273C46]/30">
-            Colombia &middot; Building for the world
+            {tr(ui.footer.closing, lang)}
           </p>
         </div>
       </div>

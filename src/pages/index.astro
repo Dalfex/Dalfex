@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero";
-import Marquee from "../components/Marquee";
 import Services from "../components/Services";
 import Projects from "../components/Projects";
 import About from "../components/About";
@@ -10,13 +9,12 @@ import Footer from "../components/Footer";
 import FloatingNav from "../components/FloatingNav";
 ---
 
-<Layout title="Dalfex — We Build the Future You Imagined">
-  <Hero client:load />
-  <Marquee client:visible />
-  <Services client:visible />
-  <Projects client:visible />
-  <About client:visible />
-  <Contact client:visible />
-  <Footer client:load />
-  <FloatingNav client:load />
+<Layout title="Dalfex — We build the future you imagined" lang="en">
+  <Hero client:load lang="en" />
+  <Services client:visible lang="en" />
+  <Projects client:visible lang="en" />
+  <About client:visible lang="en" />
+  <Contact client:visible lang="en" />
+  <Footer client:load lang="en" />
+  <FloatingNav client:load lang="en" />
 </Layout>

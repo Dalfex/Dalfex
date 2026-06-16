@@ -18,11 +18,15 @@ landing/
 │   ├── components/         React islands (Hero, Services, Projects, ...)
 │   ├── data/
 │   │   └── projects.ts     Single source of truth for the project list
+│   ├── i18n/
+│   │   ├── config.ts       Lang type, helpers (tr, numberWord, langPath)
+│   │   └── ui.ts           All site-chrome copy ({ en, es })
 │   ├── hooks/              Shared React hooks (in-view animation)
 │   ├── layouts/
-│   │   └── Layout.astro    Base HTML shell
+│   │   └── Layout.astro    Base HTML shell + first-visit language redirect
 │   ├── pages/
-│   │   └── index.astro     The one-page site
+│   │   ├── index.astro     English site (/)
+│   │   └── es/index.astro  Spanish site (/es)
 │   └── styles/
 │       └── global.css      Tailwind entry + global tokens
 └── astro.config.mjs
@@ -30,6 +34,22 @@ landing/
 
 The site is a single page composed of React islands hydrated with Astro's
 `client:load` / `client:visible` directives.
+
+## Languages (EN / ES)
+
+The site ships two static routes — `/` (English) and `/es` (Spanish). A
+first-time visitor whose browser prefers Spanish is redirected from `/` to
+`/es`; the EN/ES toggle in the nav and footer records the choice in
+localStorage so it is respected afterwards.
+
+All translatable text lives in two places:
+
+- **`src/i18n/ui.ts`** — site chrome (nav, hero, section headings, footer).
+- **`src/data/projects.ts`** — per-project copy (each text field is
+  `{ en, es }`).
+
+Components read strings with the `tr(value, lang)` helper. To edit copy, change
+the `en`/`es` values in those files — no component changes needed.
 
 ## Showing / hiding projects
 

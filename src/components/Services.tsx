@@ -1,6 +1,10 @@
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
 import { ArrowRight } from "lucide-react";
-import { enabledProjects, numberWord } from "../data/projects";
+import { enabledProjects } from "../data/projects";
+import { tr, numberWord, type Lang } from "../i18n/config";
+import { ui } from "../i18n/ui";
+
+const serif = { fontFamily: "'PPMondwest', serif" };
 
 function HighlightText({ text, accent }: { text: string; accent: string }) {
   const parts = text.split(accent);
@@ -8,13 +12,13 @@ function HighlightText({ text, accent }: { text: string; accent: string }) {
   return (
     <>
       {parts[0]}
-      <span style={{ fontFamily: "'PPMondwest', serif" }}>{accent}</span>
+      <span style={serif}>{accent}</span>
       {parts[1]}
     </>
   );
 }
 
-export default function Services() {
+export default function Services({ lang }: { lang: Lang }) {
   const { ref, isInView } = useInViewAnimation();
 
   return (
@@ -25,12 +29,13 @@ export default function Services() {
           className={`mb-20 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
         >
           <p className="mb-4 font-mono text-xs uppercase tracking-widest text-[#273C46]">
-            What we build
+            {tr(ui.services.eyebrow, lang)}
           </p>
           <h2 className="max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-[#051A24]">
-            {numberWord(enabledProjects.length)} projects.{" "}
-            <span style={{ fontFamily: "'PPMondwest', serif" }}>One studio.</span>{" "}
-            We design, build, and ship.
+            {numberWord(enabledProjects.length, lang)}{" "}
+            {tr(ui.services.headingProjectsWord, lang)}{" "}
+            <span style={serif}>{tr(ui.services.headingStudio, lang)}</span>{" "}
+            {tr(ui.services.headingTail, lang)}
           </h2>
         </div>
 
@@ -44,7 +49,7 @@ export default function Services() {
               }`}
               style={{ animationDelay: `${0.15 + i * 0.1}s` }}
             >
-              {/* Icon + Number */}
+              {/* Icon */}
               <div className="flex items-center gap-4 md:col-span-1">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F6FCFF]">
                   <service.icon
@@ -57,7 +62,7 @@ export default function Services() {
               {/* Title */}
               <div className="md:col-span-3">
                 <h3 className="text-xl font-medium tracking-tight text-[#051A24] md:text-2xl">
-                  {service.serviceTitle}
+                  {tr(service.serviceTitle, lang)}
                 </h3>
                 <span className="mt-1 inline-block rounded-full bg-[#F6FCFF] px-3 py-0.5 text-[11px] font-medium uppercase tracking-wider text-[#273C46]">
                   {service.name}
@@ -68,8 +73,8 @@ export default function Services() {
               <div className="md:col-span-6">
                 <p className="text-[15px] leading-relaxed text-[#273C46]">
                   <HighlightText
-                    text={service.serviceDescription}
-                    accent={service.accent}
+                    text={tr(service.serviceDescription, lang)}
+                    accent={tr(service.accent, lang)}
                   />
                 </p>
               </div>

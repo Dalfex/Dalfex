@@ -1,8 +1,12 @@
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
 import { ArrowUpRight } from "lucide-react";
 import { enabledProjects as projects } from "../data/projects";
+import { tr, type Lang } from "../i18n/config";
+import { ui } from "../i18n/ui";
 
-export default function Projects() {
+const serif = { fontFamily: "'PPMondwest', serif" };
+
+export default function Projects({ lang }: { lang: Lang }) {
   const { ref, isInView } = useInViewAnimation();
 
   return (
@@ -13,11 +17,11 @@ export default function Projects() {
           className={`mb-16 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
         >
           <p className="mb-4 font-mono text-xs uppercase tracking-widest text-[#273C46]">
-            Selected work
+            {tr(ui.projects.eyebrow, lang)}
           </p>
           <h2 className="max-w-xl text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-[#051A24]">
-            Projects we're{" "}
-            <span style={{ fontFamily: "'PPMondwest', serif" }}>building</span>
+            {tr(ui.projects.headingPre, lang)}
+            <span style={serif}>{tr(ui.projects.headingAccent, lang)}</span>
           </h2>
         </div>
 
@@ -32,20 +36,34 @@ export default function Projects() {
               style={{ animationDelay: `${0.2 + i * 0.12}s` }}
             >
               <div className="grid grid-cols-1 md:grid-cols-2">
-                {/* Image */}
+                {/* Visual: real screenshot when available, else a branded placeholder */}
                 <div className="relative h-[280px] overflow-hidden md:h-[400px]">
-                  <img
-                    src={project.image}
-                    alt={project.name}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div
-                    className="absolute inset-0 opacity-20"
-                    style={{
-                      background: `linear-gradient(135deg, ${project.color} 0%, transparent 60%)`,
-                    }}
-                  />
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div
+                      className="flex h-full w-full flex-col items-center justify-center gap-5"
+                      style={{
+                        background: `linear-gradient(135deg, ${project.color} 0%, #0D212C 100%)`,
+                      }}
+                    >
+                      <project.icon
+                        className="h-12 w-12 text-white/30 transition-transform duration-700 group-hover:scale-110"
+                        strokeWidth={1.25}
+                      />
+                      <span
+                        className="text-4xl tracking-tight text-white/90 md:text-5xl"
+                        style={serif}
+                      >
+                        {project.name}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Content */}
@@ -54,21 +72,21 @@ export default function Projects() {
                     <div className="mb-6 flex items-center gap-3">
                       <span className="h-2 w-2 rounded-full bg-[#051A24]" />
                       <span className="font-mono text-[11px] uppercase tracking-widest text-[#273C46]">
-                        {project.status}
+                        {tr(project.status, lang)}
                       </span>
                     </div>
 
                     <h3
                       className="text-3xl font-medium tracking-tight text-[#051A24] md:text-4xl"
-                      style={{ fontFamily: "'PPMondwest', serif" }}
+                      style={serif}
                     >
                       {project.name}
                     </h3>
                     <p className="mt-1 text-sm font-medium text-[#273C46]/60">
-                      {project.subtitle}
+                      {tr(project.subtitle, lang)}
                     </p>
                     <p className="mt-4 text-[15px] leading-relaxed text-[#273C46]">
-                      {project.description}
+                      {tr(project.description, lang)}
                     </p>
                   </div>
 
@@ -85,7 +103,7 @@ export default function Projects() {
                     </div>
 
                     <div className="mt-6 flex items-center gap-2 text-sm font-medium text-[#051A24] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      View project
+                      {tr(ui.projects.view, lang)}
                       <ArrowUpRight className="h-4 w-4" />
                     </div>
                   </div>

@@ -1,7 +1,24 @@
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
+import { tr, type Lang } from "../i18n/config";
+import { ui } from "../i18n/ui";
 
-export default function About() {
+const serif = { fontFamily: "'PPMondwest', serif" };
+
+export default function About({ lang }: { lang: Lang }) {
   const { ref, isInView } = useInViewAnimation();
+
+  const stats = [
+    { value: "4+", label: tr(ui.about.statProductsLabel, lang) },
+    { value: "3", label: tr(ui.about.statIndustriesLabel, lang) },
+    { value: "24/7", label: tr(ui.about.statUptimeLabel, lang) },
+    { value: "2026", label: tr(ui.about.statFoundedLabel, lang) },
+  ];
+
+  const tech = [
+    "React", "Next.js", "NestJS", "React Native", "Expo",
+    "Supabase", "PostgreSQL", "TypeScript", "TailwindCSS",
+    "Drizzle", "Zustand", "Framer Motion",
+  ];
 
   return (
     <section id="about" className="bg-white py-24 md:py-32">
@@ -13,16 +30,15 @@ export default function About() {
           }`}
         >
           <p className="mb-8 font-mono text-xs uppercase tracking-widest text-[#273C46]">
-            About Dalfex
+            {tr(ui.about.eyebrow, lang)}
           </p>
           <blockquote className="text-[clamp(1.5rem,4vw,2.8rem)] font-medium leading-[1.25] tracking-tight text-[#051A24]">
-            "We started{" "}
-            <span style={{ fontFamily: "'PPMondwest', serif" }}>Dalfex</span>{" "}
-            because we believe the best digital products come from studios that
-            build their own — not agencies that only build for others."
+            {tr(ui.about.quotePre, lang)}
+            <span style={serif}>Dalfex</span>
+            {tr(ui.about.quotePost, lang)}
           </blockquote>
           <p className="mt-8 text-sm italic text-[#273C46]">
-            — Daniel Alferez, Founder
+            {tr(ui.about.attribution, lang)}
           </p>
         </div>
 
@@ -33,16 +49,11 @@ export default function About() {
           }`}
           style={{ animationDelay: "0.3s" }}
         >
-          {[
-            { value: "4+", label: "Products in development" },
-            { value: "3", label: "Industries served" },
-            { value: "24/7", label: "AI automation uptime" },
-            { value: "2026", label: "Founded in Colombia" },
-          ].map((stat) => (
+          {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <span
                 className="block text-5xl tracking-tight text-[#051A24] md:text-6xl"
-                style={{ fontFamily: "'PPMondwest', serif" }}
+                style={serif}
               >
                 {stat.value}
               </span>
@@ -61,20 +72,13 @@ export default function About() {
           style={{ animationDelay: "0.5s" }}
         >
           <div className="marquee-track flex w-max gap-10">
-            {[
-              "React", "Next.js", "NestJS", "React Native", "Expo",
-              "Supabase", "PostgreSQL", "TypeScript", "TailwindCSS",
-              "Drizzle", "Zustand", "Framer Motion",
-              "React", "Next.js", "NestJS", "React Native", "Expo",
-              "Supabase", "PostgreSQL", "TypeScript", "TailwindCSS",
-              "Drizzle", "Zustand", "Framer Motion",
-            ].map((tech, i) => (
+            {[...tech, ...tech].map((t, i) => (
               <span
-                key={`${tech}-${i}`}
+                key={`${t}-${i}`}
                 className="whitespace-nowrap text-xl tracking-tight text-[#273C46]/20 md:text-3xl"
                 style={{ fontFamily: "'Instrument Serif', serif", fontStyle: "italic" }}
               >
-                {tech}
+                {t}
               </span>
             ))}
           </div>

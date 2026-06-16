@@ -1,0 +1,20 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero";
+import Services from "../../components/Services";
+import Projects from "../../components/Projects";
+import About from "../../components/About";
+import Contact from "../../components/Contact";
+import Footer from "../../components/Footer";
+import FloatingNav from "../../components/FloatingNav";
+---
+
+<Layout title="Dalfex — Construimos el futuro que imaginas" lang="es">
+  <Hero client:load lang="es" />
+  <Services client:visible lang="es" />
+  <Projects client:visible lang="es" />
+  <About client:visible lang="es" />
+  <Contact client:visible lang="es" />
+  <Footer client:load lang="es" />
+  <FloatingNav client:load lang="es" />
+</Layout>

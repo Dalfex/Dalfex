@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { tr, type Lang } from "../i18n/config";
+import { ui } from "../i18n/ui";
 
-export default function FloatingNav() {
+export default function FloatingNav({ lang }: { lang: Lang }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ export default function FloatingNav() {
           href="#contact"
           className="flex items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-medium text-[#051A24] transition-colors hover:bg-[#F6FCFF]"
         >
-          Start a project
+          {tr(ui.nav.cta, lang)}
           <ArrowUpRight className="h-3.5 w-3.5" />
         </a>
       </div>
