@@ -14,6 +14,17 @@ const defaultDescription =
   lang === "es"
     ? "Dalfex — estudio tecnológico colombiano que construye SaaS con IA, apps móviles y automatización."
     : "Dalfex — Colombia-based tech studio building AI-powered SaaS, mobile apps, and automation.";
+
+const canonical = lang === "es" ? "https://dalfex.com/es" : "https://dalfex.com/";
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Dalfex",
+  url: "https://dalfex.com",
+  logo: "https://dalfex.com/logo-mark.svg",
+  email: "hello@dalfex.com",
+};
 ---
 
 <!doctype html>
@@ -23,13 +34,16 @@ const defaultDescription =
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description ?? defaultDescription} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="en" href="https://dalfex.com/" />
     <link rel="alternate" hreflang="es" href="https://dalfex.com/es" />
+    <link rel="alternate" hreflang="x-default" href="https://dalfex.com/" />
     <title>{title}</title>
 
     {/* Open Graph / social share */}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Dalfex" />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description ?? defaultDescription} />
     <meta property="og:locale" content={lang === "es" ? "es_CO" : "en_US"} />
@@ -40,6 +54,12 @@ const defaultDescription =
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description ?? defaultDescription} />
     <meta name="twitter:image" content="https://dalfex.com/og.png" />
+
+    {/* Structured data */}
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(organizationSchema)}
+    />
     {/* First-visit language redirect: only from the root path, and only when
         the visitor has no stored preference. The manual EN/ES toggle stores
         the choice so we never fight an explicit selection. */}

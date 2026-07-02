@@ -7,9 +7,12 @@ import type { Lang } from "../i18n/config";
 export default function LangToggle({
   lang,
   className = "",
+  dark = false,
 }: {
   lang: Lang;
   className?: string;
+  /** Light-on-dark styling for use on the deep teal surfaces. */
+  dark?: boolean;
 }) {
   const store = (choice: Lang) => {
     try {
@@ -26,8 +29,12 @@ export default function LangToggle({
       aria-current={lang === code ? "true" : undefined}
       className={`px-1.5 transition-colors ${
         lang === code
-          ? "text-[#051A24] font-medium"
-          : "text-[#273C46]/40 hover:text-[#051A24]"
+          ? dark
+            ? "text-white font-medium"
+            : "text-[#051A24] font-medium"
+          : dark
+            ? "text-[#E0EBF0]/40 hover:text-white"
+            : "text-[#273C46]/40 hover:text-[#051A24]"
       }`}
     >
       {label}
@@ -40,7 +47,7 @@ export default function LangToggle({
       aria-label="Language selector"
     >
       {opt("en", "EN", "/")}
-      <span className="text-[#273C46]/20">/</span>
+      <span className={dark ? "text-[#E0EBF0]/20" : "text-[#273C46]/20"}>/</span>
       {opt("es", "ES", "/es")}
     </div>
   );

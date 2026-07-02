@@ -14,6 +14,8 @@ export const ui = {
     about: { en: "About", es: "Nosotros" } satisfies Localized,
     contact: { en: "Contact", es: "Contacto" } satisfies Localized,
     cta: { en: "Start a project", es: "Inicia un proyecto" } satisfies Localized,
+    openMenu: { en: "Open menu", es: "Abrir menú" } satisfies Localized,
+    closeMenu: { en: "Close menu", es: "Cerrar menú" } satisfies Localized,
   },
   hero: {
     headingPre: { en: "Build the ", es: "Construye la " } satisfies Localized,
@@ -51,7 +53,6 @@ export const ui = {
     eyebrow: { en: "Selected work", es: "Trabajo seleccionado" } satisfies Localized,
     headingPre: { en: "Projects we're ", es: "Proyectos que estamos " } satisfies Localized,
     headingAccent: { en: "building", es: "construyendo" } satisfies Localized,
-    view: { en: "View project", es: "Ver proyecto" } satisfies Localized,
   },
   about: {
     eyebrow: { en: "About Dalfex", es: "Sobre Dalfex" } satisfies Localized,

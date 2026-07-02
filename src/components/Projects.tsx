@@ -1,5 +1,4 @@
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
-import { ArrowUpRight } from "lucide-react";
 import { enabledProjects as projects } from "../data/projects";
 import { tr, type Lang } from "../i18n/config";
 import { ui } from "../i18n/ui";
@@ -100,11 +99,6 @@ export default function Projects({ lang }: { lang: Lang }) {
                           {tag}
                         </span>
                       ))}
-                    </div>
-
-                    <div className="mt-6 flex items-center gap-2 text-sm font-medium text-[#051A24] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      {tr(ui.projects.view, lang)}
-                      <ArrowUpRight className="h-4 w-4" />
                     </div>
                   </div>
                 </div>

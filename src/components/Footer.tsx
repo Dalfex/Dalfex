@@ -16,9 +16,7 @@ export default function Footer({ lang }: { lang: Lang }) {
 
   const connectItems = [
     { label: "Email", href: "mailto:hello@dalfex.com" },
-    { label: "WhatsApp", href: "https://wa.me/" },
     { label: "GitHub", href: "https://github.com/Dalfex" },
-    { label: "LinkedIn", href: "#" },
   ];
 
   return (

@@ -35,9 +35,6 @@ export default function Contact({ lang }: { lang: Lang }) {
           <Button variant="secondary" href="mailto:hello@dalfex.com">
             hello@dalfex.com
           </Button>
-          <Button variant="tertiary" href="https://wa.me/">
-            WhatsApp
-          </Button>
         </div>
       </div>
     </section>

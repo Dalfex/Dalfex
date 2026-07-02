@@ -1,14 +1,20 @@
 import { useInViewAnimation } from "../hooks/useInViewAnimation";
+import { enabledProjects, projects } from "../data/projects";
 import { tr, type Lang } from "../i18n/config";
 import { ui } from "../i18n/ui";
 
 const serif = { fontFamily: "'PPMondwest', serif" };
 
+// Count shown products; the "+" hints at projects not (yet) on the site.
+const productCount = `${enabledProjects.length}${
+  projects.length > enabledProjects.length ? "+" : ""
+}`;
+
 export default function About({ lang }: { lang: Lang }) {
   const { ref, isInView } = useInViewAnimation();
 
   const stats = [
-    { value: "4+", label: tr(ui.about.statProductsLabel, lang) },
+    { value: productCount, label: tr(ui.about.statProductsLabel, lang) },
     { value: "3", label: tr(ui.about.statIndustriesLabel, lang) },
     { value: "24/7", label: tr(ui.about.statUptimeLabel, lang) },
     { value: "2026", label: tr(ui.about.statFoundedLabel, lang) },

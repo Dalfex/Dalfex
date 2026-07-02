@@ -87,7 +87,7 @@ export const projects: Project[] = [
     },
     tags: ["FastAPI", "Next.js", "AI/ML", "Video Processing"],
     status: { en: "In Development", es: "En desarrollo" },
-    color: "#0D212C",
+    color: "#16324A",
   },
   {
     enabled: true,
@@ -106,7 +106,7 @@ export const projects: Project[] = [
     },
     tags: ["React Native", "Expo", "SQLite"],
     status: { en: "MVP Ready", es: "MVP listo" },
-    color: "#051A24",
+    color: "#33261A",
   },
   {
     // Paused — not sure we'll continue this one yet. Hidden from the landing.
