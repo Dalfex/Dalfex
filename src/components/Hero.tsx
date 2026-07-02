@@ -26,7 +26,17 @@ export default function Hero({ lang }: { lang: Lang }) {
   ];
 
   return (
-    <section className="bg-white">
+    <section className="grain relative bg-white">
+      {/* Soft radial teal tint behind the hero center */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[560px]"
+        style={{
+          background:
+            "radial-gradient(ellipse 65% 55% at 50% 42%, rgba(5, 26, 36, 0.04), transparent 70%)",
+        }}
+      />
+
       {/* Nav */}
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-8">
         <a
@@ -140,22 +150,25 @@ export default function Hero({ lang }: { lang: Lang }) {
       )}
 
       {/* Hero content */}
-      <div className="mx-auto max-w-2xl px-6 pt-12 pb-16 text-center md:pt-20">
+      <div className="relative mx-auto max-w-2xl px-6 pt-12 pb-16 text-center md:pt-20">
         {/* Logo mark */}
         <img
           src="/logo-mark.svg"
           alt=""
-          className="mx-auto mb-5 h-14 w-14 md:h-16 md:w-16"
+          className="animate-fade-in-up mx-auto mb-5 h-14 w-14 md:h-16 md:w-16"
         />
         <div
-          className="mx-auto mb-8 text-[36px] font-semibold tracking-tight text-[#051A24] md:text-[44px] lg:text-[48px]"
-          style={serif}
+          className="animate-fade-in-up mx-auto mb-8 text-[36px] font-semibold tracking-tight text-[#051A24] md:text-[44px] lg:text-[48px]"
+          style={{ ...serif, animationDelay: "0.08s" }}
         >
           Dalfex
         </div>
 
         {/* Heading */}
-        <h1 className="text-[clamp(1.75rem,5vw,2.5rem)] font-medium leading-[1.2] tracking-tight text-[#051A24]">
+        <h1
+          className="animate-fade-in-up text-[clamp(1.75rem,5vw,2.5rem)] font-medium leading-[1.2] tracking-tight text-[#051A24]"
+          style={{ animationDelay: "0.16s" }}
+        >
           {tr(ui.hero.headingPre, lang)}
           <span style={serif}>{tr(ui.hero.headingAccent1, lang)}</span>
           {tr(ui.hero.headingMid, lang)}
@@ -163,7 +176,10 @@ export default function Hero({ lang }: { lang: Lang }) {
         </h1>
 
         {/* Description */}
-        <div className="mt-8 space-y-4 text-[15px] leading-relaxed text-[#273C46]">
+        <div
+          className="animate-fade-in-up mt-8 space-y-4 text-[15px] leading-relaxed text-[#273C46]"
+          style={{ animationDelay: "0.24s" }}
+        >
           <p>{tr(ui.hero.p1, lang)}</p>
           <p>{tr(ui.hero.p2, lang)}</p>
           <p>
@@ -174,7 +190,10 @@ export default function Hero({ lang }: { lang: Lang }) {
         </div>
 
         {/* CTAs */}
-        <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+        <div
+          className="animate-fade-in-up mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+          style={{ animationDelay: "0.32s" }}
+        >
           <Button variant="primary" href="#contact">
             {tr(ui.hero.ctaPrimary, lang)}
           </Button>
