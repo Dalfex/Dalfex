@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title description">
+  <title id="title">DaLynk</title>
+  <desc id="description">Two connected paths meeting in one shared business hub.</desc>
+  <defs>
+    <linearGradient id="left-link" x1="19" y1="27" x2="64" y2="99" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="right-link" x1="109" y1="28" x2="64" y2="99" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67E8F9"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="hub" x1="43" y1="64" x2="85" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C4B5FD"/>
+      <stop offset="1" stop-color="#7DD3FC"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="128" height="128" rx="30" fill="#07121B"/>
+  <path
+    d="M55 33H42C28.2 33 19 45.7 19 64s9.2 31 23 31h13"
+    fill="none"
+    stroke="url(#left-link)"
+    stroke-width="14"
+    stroke-linecap="round"
+  />
+  <path
+    d="M73 33h13c13.8 0 23 12.7 23 31s-9.2 31-23 31H73"
+    fill="none"
+    stroke="url(#right-link)"
+    stroke-width="14"
+    stroke-linecap="round"
+  />
+  <path
+    d="M44 64h40"
+    fill="none"
+    stroke="url(#hub)"
+    stroke-width="14"
+    stroke-linecap="round"
+  />
+  <circle cx="64" cy="64" r="5" fill="#F8FAFC"/>
+</svg>

@@ -25,6 +25,8 @@ export interface Project {
   enabled: boolean;
   /** Product name (e.g. "DaLynk"). Also used as the tag chip. Not translated. */
   name: string;
+  /** Product's own brand asset. Each mark keeps its native color and visual language. */
+  logo?: string;
   /** One-line product descriptor used on the "Selected work" cards. */
   subtitle: Localized;
   /** lucide icon for the "What we build" service row and card placeholder. */
@@ -51,6 +53,7 @@ export const projects: Project[] = [
   {
     enabled: true,
     name: "DaLynk",
+    logo: "/project-logos/dalynk.svg",
     image: "/prints/project-dalynk.png",
     subtitle: {
       en: "Business Management Platform",
@@ -74,6 +77,7 @@ export const projects: Project[] = [
   {
     enabled: true,
     name: "DaClipLab",
+    logo: "/project-logos/dacliplab.webp",
     image: "/prints/project-dacliplab.png",
     subtitle: { en: "AI-Powered Shorts Factory", es: "Fábrica de shorts con IA" },
     icon: Film,
@@ -94,6 +98,7 @@ export const projects: Project[] = [
   {
     enabled: true,
     name: "DazzHabit",
+    logo: "/project-logos/dazzhabit.webp",
     image: "/prints/project-dazzhabit.png",
     subtitle: { en: "Habits & Personal Finance", es: "Hábitos y finanzas personales" },
     icon: Smartphone,

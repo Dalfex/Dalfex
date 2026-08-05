@@ -92,15 +92,30 @@ export default function Projects({ lang }: { lang: Lang }) {
                     </span>
                   </div>
 
-                  <h3
-                    className="text-3xl font-medium tracking-tight text-ink md:text-4xl"
-                    style={serif}
-                  >
-                    {project.name}
-                  </h3>
-                  <p className="mt-1 text-sm font-medium text-ink/40">
-                    {tr(project.subtitle, lang)}
-                  </p>
+                  <div className="flex items-center gap-4">
+                    {project.logo && (
+                      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border border-ink/15 bg-panel p-1">
+                        <img
+                          src={project.logo}
+                          alt=""
+                          loading="lazy"
+                          className="h-full w-full rounded-[0.7rem] object-cover"
+                        />
+                      </div>
+                    )}
+
+                    <div className="min-w-0">
+                      <h3
+                        className="text-3xl font-medium tracking-tight text-ink md:text-4xl"
+                        style={serif}
+                      >
+                        {project.name}
+                      </h3>
+                      <p className="mt-1 text-sm font-medium text-ink/40">
+                        {tr(project.subtitle, lang)}
+                      </p>
+                    </div>
+                  </div>
                   <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink/65">
                     {tr(project.description, lang)}
                   </p>
