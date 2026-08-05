@@ -51,6 +51,7 @@ export const projects: Project[] = [
   {
     enabled: true,
     name: "DaLynk",
+    image: "/prints/project-dalynk.png",
     subtitle: {
       en: "Business Management Platform",
       es: "Plataforma de gestión de negocios",
@@ -73,6 +74,7 @@ export const projects: Project[] = [
   {
     enabled: true,
     name: "DaClipLab",
+    image: "/prints/project-dacliplab.png",
     subtitle: { en: "AI-Powered Shorts Factory", es: "Fábrica de shorts con IA" },
     icon: Film,
     serviceTitle: { en: "AI Video Creation", es: "Creación de video con IA" },
@@ -92,6 +94,7 @@ export const projects: Project[] = [
   {
     enabled: true,
     name: "DazzHabit",
+    image: "/prints/project-dazzhabit.png",
     subtitle: { en: "Habits & Personal Finance", es: "Hábitos y finanzas personales" },
     icon: Smartphone,
     serviceTitle: { en: "Habit Tracking & Finance", es: "Hábitos y finanzas" },

@@ -27,7 +27,7 @@ export default function About({ lang }: { lang: Lang }) {
   ];
 
   return (
-    <section id="about" className="bg-white py-24 md:py-32">
+    <section id="about" className="grain relative bg-field py-24 md:py-32">
       <div ref={ref} className="mx-auto max-w-6xl px-6 md:px-8">
         {/* Big quote / manifesto */}
         <div
@@ -35,15 +35,15 @@ export default function About({ lang }: { lang: Lang }) {
             isInView ? "animate-fade-in-up" : "opacity-0"
           }`}
         >
-          <p className="mb-8 font-mono text-xs uppercase tracking-widest text-[#273C46]">
+          <p className="mb-8 font-mono text-xs uppercase tracking-widest text-ink/45">
             {tr(ui.about.eyebrow, lang)}
           </p>
-          <blockquote className="text-[clamp(1.5rem,4vw,2.8rem)] font-medium leading-[1.25] tracking-tight text-[#051A24]">
+          <blockquote className="text-[clamp(1.5rem,4vw,2.8rem)] font-medium leading-[1.25] tracking-tight text-ink">
             {tr(ui.about.quotePre, lang)}
             <span style={serif}>Dalfex</span>
             {tr(ui.about.quotePost, lang)}
           </blockquote>
-          <p className="mt-8 text-sm italic text-[#273C46]">
+          <p className="mt-8 text-sm italic text-ink/45">
             {tr(ui.about.attribution, lang)}
           </p>
         </div>
@@ -58,12 +58,12 @@ export default function About({ lang }: { lang: Lang }) {
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <span
-                className="block text-5xl tracking-tight text-[#051A24] md:text-6xl"
+                className="block text-5xl tracking-tight text-ink md:text-6xl"
                 style={serif}
               >
                 {stat.value}
               </span>
-              <span className="mt-2 block text-xs font-medium uppercase tracking-widest text-[#273C46]/50">
+              <span className="mt-2 block text-xs font-medium uppercase tracking-widest text-ink/35">
                 {stat.label}
               </span>
             </div>
@@ -72,7 +72,7 @@ export default function About({ lang }: { lang: Lang }) {
 
         {/* Tech marquee */}
         <div
-          className={`mt-24 overflow-hidden border-y border-[#E0EBF0] py-5 ${
+          className={`mt-24 overflow-hidden border-y border-ink/10 py-5 ${
             isInView ? "animate-fade-in-up" : "opacity-0"
           }`}
           style={{ animationDelay: "0.5s" }}
@@ -81,8 +81,8 @@ export default function About({ lang }: { lang: Lang }) {
             {[...tech, ...tech].map((t, i) => (
               <span
                 key={`${t}-${i}`}
-                className="whitespace-nowrap text-xl tracking-tight text-[#273C46]/20 md:text-3xl"
-                style={{ fontFamily: "'Instrument Serif', serif", fontStyle: "italic" }}
+                className="whitespace-nowrap text-xl tracking-tight text-ink/[0.14] md:text-3xl"
+                style={{ fontFamily: "'PPMondwest', serif" }}
               >
                 {t}
               </span>

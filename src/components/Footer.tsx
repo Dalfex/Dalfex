@@ -9,7 +9,6 @@ export default function Footer({ lang }: { lang: Lang }) {
 
   const navItems = [
     { label: tr(ui.footer.home, lang), href: home },
-    { label: tr(ui.nav.services, lang), href: "#services" },
     { label: tr(ui.nav.projects, lang), href: "#projects" },
     { label: tr(ui.nav.about, lang), href: "#about" },
   ];
@@ -20,12 +19,12 @@ export default function Footer({ lang }: { lang: Lang }) {
   ];
 
   return (
-    <footer className="bg-white">
+    <footer className="grain relative bg-field">
       {/* Giant watermark */}
-      <div className="overflow-hidden border-t border-[#E0EBF0] pt-16 md:pt-20">
+      <div className="overflow-hidden border-t border-ink/10 pt-16 md:pt-20">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <span
-            className="block select-none text-[18vw] leading-[0.85] tracking-tighter text-[#051A24]/[0.04] md:text-[14vw]"
+            className="block select-none text-[18vw] leading-[0.85] tracking-tighter text-ink/[0.05] md:text-[14vw]"
             style={serif}
           >
             Dalfex
@@ -39,15 +38,16 @@ export default function Footer({ lang }: { lang: Lang }) {
           {/* Brand */}
           <div>
             <a href={home} className="flex items-center gap-2.5" aria-label="Dalfex">
-              <img src="/logo-mark.svg" alt="" className="h-7 w-7" />
+              <img src="/logo-mark.svg" alt="" className="h-7 w-7 dark:hidden" />
+              <img src="/logo-mark-light.svg" alt="" className="hidden h-7 w-7 dark:block" />
               <span
-                className="text-2xl tracking-tight text-[#051A24]"
+                className="text-2xl tracking-tight text-ink"
                 style={serif}
               >
-                Dalfex<sup className="text-[10px]">&reg;</sup>
+                Dalfex<sup className="text-[10px] text-accent">&reg;</sup>
               </span>
             </a>
-            <p className="mt-2 max-w-xs text-sm text-[#273C46]/50">
+            <p className="mt-2 max-w-xs text-sm text-ink/40">
               {tr(ui.footer.tagline1, lang)}
               <br />
               {tr(ui.footer.tagline2, lang)}
@@ -58,7 +58,7 @@ export default function Footer({ lang }: { lang: Lang }) {
           {/* Links */}
           <div className="flex gap-16">
             <div>
-              <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-[#273C46]/30">
+              <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-ink/55/30">
                 {tr(ui.footer.navigate, lang)}
               </p>
               <div className="flex flex-col gap-2.5">
@@ -66,7 +66,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="text-sm text-[#273C46]/50 transition-colors hover:text-[#051A24]"
+                    className="text-sm text-ink/40 transition-colors hover:text-ink"
                   >
                     {link.label}
                   </a>
@@ -74,7 +74,7 @@ export default function Footer({ lang }: { lang: Lang }) {
               </div>
             </div>
             <div>
-              <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-[#273C46]/30">
+              <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-ink/55/30">
                 {tr(ui.footer.connect, lang)}
               </p>
               <div className="flex flex-col gap-2.5">
@@ -82,7 +82,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="text-sm text-[#273C46]/50 transition-colors hover:text-[#051A24]"
+                    className="text-sm text-ink/40 transition-colors hover:text-ink"
                   >
                     {link.label}
                   </a>
@@ -93,11 +93,11 @@ export default function Footer({ lang }: { lang: Lang }) {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 flex flex-col items-center gap-3 border-t border-[#E0EBF0] pt-6 md:flex-row md:justify-between">
-          <p className="text-[11px] text-[#273C46]/30">
+        <div className="mt-12 flex flex-col items-center gap-3 border-t border-ink/10 pt-6 md:flex-row md:justify-between">
+          <p className="text-[11px] text-ink/55/30">
             &copy; {new Date().getFullYear()} Dalfex. {tr(ui.footer.rights, lang)}
           </p>
-          <p className="text-[11px] text-[#273C46]/30">
+          <p className="text-[11px] text-ink/55/30">
             {tr(ui.footer.closing, lang)}
           </p>
         </div>

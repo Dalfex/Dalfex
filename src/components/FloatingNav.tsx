@@ -20,11 +20,12 @@ export default function FloatingNav({ lang }: { lang: Lang }) {
           : "translate-y-4 opacity-0 pointer-events-none"
       }`}
     >
-      <div className="flex items-center gap-3 rounded-full bg-[#051A24] px-2 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.25)]">
-        <img src="/logo-mark-light.svg" alt="" className="h-9 w-9 rounded-[10px]" />
+      <div className="flex items-center gap-3 rounded-full border border-ink/15 bg-panel/90 px-2 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+        <img src="/logo-mark.svg" alt="" className="h-9 w-9 rounded-[10px] dark:hidden" />
+        <img src="/logo-mark-light.svg" alt="" className="hidden h-9 w-9 rounded-[10px] dark:block" />
         <a
           href="#contact"
-          className="flex items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-medium text-[#051A24] transition-colors hover:bg-[#F6FCFF]"
+          className="flex items-center gap-2 rounded-full bg-ink px-5 py-2 text-sm font-medium text-field transition-colors hover:opacity-90"
         >
           {tr(ui.nav.cta, lang)}
           <ArrowUpRight className="h-3.5 w-3.5" />

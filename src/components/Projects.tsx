@@ -5,101 +5,115 @@ import { ui } from "../i18n/ui";
 
 const serif = { fontFamily: "'PPMondwest', serif" };
 
+/**
+ * Selected work, hung like an exhibition.
+ *
+ * Each product is a framed monochrome print with its argument beside it, and
+ * an edition caption in the frame's margin — name on the left, a numbered
+ * mark on the right. The number is the card's index in the run, which is
+ * honest: this is a studio showing its editions in order.
+ */
 export default function Projects({ lang }: { lang: Lang }) {
   const { ref, isInView } = useInViewAnimation();
 
   return (
-    <section id="projects" className="bg-[#F6FCFF] py-24 md:py-32">
+    <section id="projects" className="grain relative bg-field py-24 md:py-32">
       <div ref={ref} className="mx-auto max-w-[1200px] px-6 md:px-8">
         {/* Header */}
-        <div
-          className={`mb-16 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
-        >
-          <p className="mb-4 font-mono text-xs uppercase tracking-widest text-[#273C46]">
+        <div className={`mb-16 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}>
+          <p className="mb-4 font-mono text-xs uppercase tracking-widest text-ink/45">
             {tr(ui.projects.eyebrow, lang)}
           </p>
-          <h2 className="max-w-xl text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-[#051A24]">
+          <h2 className="max-w-xl text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-ink">
             {tr(ui.projects.headingPre, lang)}
             <span style={serif}>{tr(ui.projects.headingAccent, lang)}</span>
           </h2>
         </div>
 
-        {/* Project cards */}
-        <div className="flex flex-col gap-8">
+        {/* Cards */}
+        <div className="flex flex-col gap-10">
           {projects.map((project, i) => (
             <div
               key={project.name}
-              className={`group overflow-hidden rounded-3xl bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.06)] transition-shadow duration-500 hover:shadow-[0_2px_8px_rgba(0,0,0,0.06),0_16px_48px_rgba(0,0,0,0.1)] ${
-                isInView ? "animate-fade-in-up" : "opacity-0"
-              }`}
+              className={`group ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
               style={{ animationDelay: `${0.2 + i * 0.12}s` }}
             >
-              <div className="grid grid-cols-1 md:grid-cols-2">
-                {/* Visual: real screenshot when available, else a branded placeholder */}
-                <div className="relative h-[280px] overflow-hidden md:h-[400px]">
-                  {project.image ? (
-                    <img
-                      src={project.image}
-                      alt={project.name}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div
-                      className="flex h-full w-full flex-col items-center justify-center gap-5"
-                      style={{
-                        background: `linear-gradient(135deg, ${project.color} 0%, #0D212C 100%)`,
-                      }}
-                    >
-                      <project.icon
-                        className="h-12 w-12 text-white/30 transition-transform duration-700 group-hover:scale-110"
-                        strokeWidth={1.25}
-                      />
-                      <span
-                        className="text-4xl tracking-tight text-white/90 md:text-5xl"
-                        style={serif}
-                      >
-                        {project.name}
-                      </span>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
+                {/* The print, framed. Alternates sides like hung work. */}
+                <div className={i % 2 === 1 ? "md:order-2" : ""}>
+                  <div className="relative overflow-hidden rounded-2xl border border-ink/15">
+                    <div className="relative h-[280px] md:h-[400px]">
+                      {project.image ? (
+                        <img
+                          src={project.image}
+                          alt={project.name}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full flex-col items-center justify-center gap-5 bg-panel">
+                          <project.icon
+                            className="h-12 w-12 text-ink/25"
+                            strokeWidth={1.25}
+                          />
+                          <span
+                            className="text-4xl tracking-tight text-ink/80 md:text-5xl"
+                            style={serif}
+                          >
+                            {project.name}
+                          </span>
+                        </div>
+                      )}
+                      <span aria-hidden="true" className="grain-riso" />
                     </div>
-                  )}
+                  </div>
+                  {/* Edition caption in the frame's margin */}
+                  <div
+                    aria-hidden="true"
+                    className="mt-3 flex items-center justify-between px-1 font-mono text-[10px] uppercase tracking-[0.22em] text-ink/35"
+                  >
+                    <span>{project.name}</span>
+                    <span style={serif} className="text-[13px] normal-case tracking-normal">
+                      No. {String(i + 1).padStart(3, "0")}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Content */}
-                <div className="flex flex-col justify-between p-8 md:p-10 lg:p-12">
-                  <div>
-                    <div className="mb-6 flex items-center gap-3">
-                      <span className="h-2 w-2 rounded-full bg-[#051A24]" />
-                      <span className="font-mono text-[11px] uppercase tracking-widest text-[#273C46]">
-                        {tr(project.status, lang)}
-                      </span>
-                    </div>
-
-                    <h3
-                      className="text-3xl font-medium tracking-tight text-[#051A24] md:text-4xl"
-                      style={serif}
-                    >
-                      {project.name}
-                    </h3>
-                    <p className="mt-1 text-sm font-medium text-[#273C46]/60">
-                      {tr(project.subtitle, lang)}
-                    </p>
-                    <p className="mt-4 text-[15px] leading-relaxed text-[#273C46]">
-                      {tr(project.description, lang)}
-                    </p>
+                {/* The argument */}
+                <div
+                  className={`flex flex-col justify-center ${
+                    i % 2 === 1 ? "md:order-1" : ""
+                  }`}
+                >
+                  <div className="mb-5 flex items-center gap-3">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                    <span className="font-mono text-[11px] uppercase tracking-widest text-ink/45">
+                      {tr(project.serviceTitle, lang)} · {tr(project.status, lang)}
+                    </span>
                   </div>
 
-                  <div className="mt-8">
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full bg-[#F6FCFF] px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-[#273C46]"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                  <h3
+                    className="text-3xl font-medium tracking-tight text-ink md:text-4xl"
+                    style={serif}
+                  >
+                    {project.name}
+                  </h3>
+                  <p className="mt-1 text-sm font-medium text-ink/40">
+                    {tr(project.subtitle, lang)}
+                  </p>
+                  <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink/65">
+                    {tr(project.description, lang)}
+                  </p>
+
+                  <div className="mt-7 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-ink/15 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-ink/50"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>

@@ -1,7 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <rect width="128" height="128" rx="30" fill="#051A24"/>
-  <path fill="#F6FCFF"
-    d="M40 35 H62 C83 35 99 48 99 64 C99 80 83 93 62 93 H40 Z"/>
-  <path d="M52 50 L69 64 L52 78" fill="none" stroke="#051A24"
-    stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 140">
+  <!-- LA PLANCHA: a bitmap-grid D printed twice, slightly out of register.
+       One plate, run again — the ghost impression is the product family,
+       the misregistration is the riso press worn as identity. One ink;
+       the ghost is the same ink at tint density. Grid: 8x10 cells of 12. -->
+  <g transform="translate(4,14)">
+    <g fill="#161510" opacity="0.3" transform="translate(8,-8)">
+      <rect x="0" y="0" width="24" height="120"/>
+      <rect x="24" y="0" width="48" height="12"/>
+      <rect x="60" y="12" width="24" height="12"/>
+      <rect x="72" y="24" width="24" height="72"/>
+      <rect x="60" y="96" width="24" height="12"/>
+      <rect x="24" y="108" width="48" height="12"/>
+    </g>
+    <g fill="#161510">
+      <rect x="0" y="0" width="24" height="120"/>
+      <rect x="24" y="0" width="48" height="12"/>
+      <rect x="60" y="12" width="24" height="12"/>
+      <rect x="72" y="24" width="24" height="72"/>
+      <rect x="60" y="96" width="24" height="12"/>
+      <rect x="24" y="108" width="48" height="12"/>
+    </g>
+  </g>
 </svg>

@@ -31,10 +31,10 @@ export default function LangToggle({
         lang === code
           ? dark
             ? "text-white font-medium"
-            : "text-[#051A24] font-medium"
+            : "text-ink font-medium"
           : dark
-            ? "text-[#E0EBF0]/40 hover:text-white"
-            : "text-[#273C46]/40 hover:text-[#051A24]"
+            ? "text-ink/40 hover:text-ink"
+            : "text-ink/40 hover:text-ink"
       }`}
     >
       {label}
@@ -47,7 +47,7 @@ export default function LangToggle({
       aria-label="Language selector"
     >
       {opt("en", "EN", "/")}
-      <span className={dark ? "text-[#E0EBF0]/20" : "text-[#273C46]/20"}>/</span>
+      <span className="text-ink/20">/</span>
       {opt("es", "ES", "/es")}
     </div>
   );

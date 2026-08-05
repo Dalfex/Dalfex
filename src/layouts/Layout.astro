@@ -34,6 +34,15 @@ const organizationSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description ?? defaultDescription} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0B0B0D" />
+    <script is:inline>
+      // Before paint: stored choice wins, otherwise the system decides.
+      (function () {
+        var t = localStorage.getItem("theme");
+        var dark = t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+      })();
+    </script>
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="en" href="https://dalfex.com/" />
     <link rel="alternate" hreflang="es" href="https://dalfex.com/es" />

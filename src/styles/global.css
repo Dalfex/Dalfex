@@ -1,5 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
 @import "tailwindcss";
+
+/* Class-driven dark variant: the inline script in Layout.astro sets `.dark`
+   on <html> from the stored choice, or from the system when nothing is
+   stored. */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @font-face {
   font-family: "PPMondwest";
@@ -24,16 +28,36 @@
  * Until then `--font-neue` resolves to the system stack below, which is what
  * the live site has been rendering regardless. */
 
-@theme {
+@theme inline {
   --font-mondwest: "PPMondwest", serif;
   --font-neue: "PP Neue Montreal", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-instrument: "Instrument Serif", serif;
 
-  --color-dark: #051A24;
-  --color-dark-mid: #0D212C;
-  --color-dark-muted: #273C46;
-  --color-light: #F6FCFF;
-  --color-light-muted: #E0EBF0;
+  /* Semantic pair the whole site is written in. In dark, cream ink on a
+     near-black field; in light, black ink on warm paper — the same two inks
+     of the monochrome riso run, swapped. Components never name a hex:
+     ink/field/panel flip together and every wash and hairline is an
+     ink-opacity, so one class works on both papers. Vermilion is the single
+     accent, identical on either paper. */
+  --color-ink: var(--tk-ink);
+  --color-field: var(--tk-field);
+  --color-panel: var(--tk-panel);
+  --color-accent: #F4502E;
+}
+
+:root {
+  /* Paper: the light theme is the print itself — black ink on warm cream. */
+  --tk-field: #F1ECE1;
+  --tk-panel: #F8F4EB;
+  --tk-ink: #161510;
+  color-scheme: light;
+}
+
+.dark {
+  --tk-field: #0B0B0D;
+  --tk-panel: #141416;
+  --tk-ink: #F2EDE4;
+  color-scheme: dark;
 }
 
 html {
@@ -42,6 +66,8 @@ html {
 
 body {
   font-family: var(--font-neue);
+  background: var(--tk-field);
+  color: var(--tk-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -105,8 +131,31 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.03;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 128px 128px;
   z-index: 1;
+}
+
+.dark .grain::after { opacity: 0.1; }
+
+/* Riso plate for media: two passes of the same stock at different scales,
+   laid over prints and decorative fields — never between text and its
+   background. */
+.grain-riso {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 240px 240px, 96px 96px;
+}
+
+.dark .grain-riso { opacity: 0.28; }
+
+@media (prefers-reduced-transparency: reduce) {
+  .grain::after, .grain-riso { display: none; }
 }
