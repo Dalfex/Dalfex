@@ -1,7 +1,7 @@
 # Dalfex Landing
 
 Company landing page and portfolio showcase for **Dalfex** — the software studio
-behind DaLynk, DaClipLab, DazzHabit and more.
+behind DaLynk, DaClipLab, Dabitu and more.
 
 Built with [Astro](https://astro.build) (static output) + React islands +
 Tailwind CSS 4, deployed as a static site.

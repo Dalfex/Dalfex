@@ -97,9 +97,9 @@ export const projects: Project[] = [
   },
   {
     enabled: true,
-    name: "DazzHabit",
-    logo: "/project-logos/dazzhabit.webp",
-    image: "/prints/project-dazzhabit.png",
+    name: "Dabitu",
+    logo: "/project-logos/dabitu.webp",
+    image: "/prints/project-dabitu.png",
     subtitle: { en: "Habits & Personal Finance", es: "Hábitos y finanzas personales" },
     icon: Smartphone,
     serviceTitle: { en: "Habit Tracking & Finance", es: "Hábitos y finanzas" },
