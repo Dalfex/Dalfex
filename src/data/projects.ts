@@ -112,7 +112,7 @@ export const projects: Project[] = [
       en: "Track daily habits with streaks and build financial awareness. Offline-first mobile app designed for self-improvement.",
       es: "Registra hábitos diarios con rachas y mejora tu conciencia financiera. App móvil offline-first diseñada para el crecimiento personal.",
     },
-    tags: ["React Native", "Expo", "SQLite"],
+    tags: ["Swift", "SwiftUI", "GRDB"],
     status: { en: "MVP Ready", es: "MVP listo" },
     color: "#33261A",
   },
