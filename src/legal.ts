@@ -1,4 +1,4 @@
-// The privacy policy and the terms of service (DaClipLab and the other Dalfex products), in Spanish and English.
+// The privacy policy and the terms of service (Daclipy and the other Dalfex products), in Spanish and English.
 // The texts the Google, Meta and TikTok app reviews read: keep the YouTube API, Limited Use, revocation and data
 // deletion sections when editing.
 
@@ -12,21 +12,21 @@ export const privacy: Record<"es" | "en", Doc> = {
     title: "Política de privacidad — Dalfex",
     heading: "Política de privacidad",
     intro:
-      "Esta política explica qué datos trata Dalfex en DaClipLab (daclip.dalfex.com) y en sus demás productos, para qué los usa y cómo puedes pedir que se borren. Escríbenos a hello@dalfex.com con cualquier pregunta.",
+      "Esta política explica qué datos trata Dalfex en Daclipy (daclipy.com) y en sus demás productos, para qué los usa y cómo puedes pedir que se borren. Escríbenos a hello@dalfex.com con cualquier pregunta.",
     sections: [
       {
         title: "Quiénes somos",
         body: [
-          "Dalfex es un estudio de software con sede en Colombia. DaClipLab es nuestra herramienta para crear videos cortos con inteligencia artificial y publicarlos en las cuentas que el usuario conecta. El responsable del tratamiento es Dalfex, contacto hello@dalfex.com.",
+          "Dalfex es un estudio de software con sede en Colombia. Daclipy es nuestra herramienta para crear videos cortos con inteligencia artificial y publicarlos en las cuentas que el usuario conecta. El responsable del tratamiento es Dalfex, contacto hello@dalfex.com.",
         ],
       },
       {
         title: "Datos que recogemos",
         body: [
           "• Cuenta: nombre, correo y foto de perfil cuando entras con Google o con correo y contraseña.",
-          "• Contenido: las ideas, textos, imágenes, videos y grabaciones de voz que subes, y los videos que DaClipLab genera para ti.",
+          "• Contenido: las ideas, textos, imágenes, videos y grabaciones de voz que subes, y los videos que Daclipy genera para ti.",
           "• Cuentas conectadas: cuando conectas YouTube, Facebook, Instagram o TikTok, guardamos los permisos (tokens) que esa plataforma nos entrega, el nombre y el identificador del canal o la cuenta.",
-          "• Estadísticas de YouTube: si conectas YouTube, leemos la retención de audiencia de los videos que publicaste desde DaClipLab, para mostrártela.",
+          "• Estadísticas de YouTube: si conectas YouTube, leemos la retención de audiencia de los videos que publicaste desde Daclipy, para mostrártela.",
           "• Pagos: los procesa Polar (polar.sh). No guardamos los datos de tu tarjeta.",
           "• Uso técnico: registros de errores y de uso necesarios para operar y proteger el servicio.",
         ],
@@ -41,10 +41,10 @@ export const privacy: Record<"es" | "en", Doc> = {
         id: "youtube",
         title: "YouTube y los servicios de API de Google",
         body: [
-          "DaClipLab usa los servicios de API de YouTube para subir los videos que eliges publicar y para leer la retención de audiencia de esos videos. Al conectar YouTube aceptas los Términos de servicio de YouTube (https://www.youtube.com/t/terms) y se aplica la Política de privacidad de Google (https://policies.google.com/privacy).",
+          "Daclipy usa los servicios de API de YouTube para subir los videos que eliges publicar y para leer la retención de audiencia de esos videos. Al conectar YouTube aceptas los Términos de servicio de YouTube (https://www.youtube.com/t/terms) y se aplica la Política de privacidad de Google (https://policies.google.com/privacy).",
           "Los permisos que pedimos son youtube.upload (subir videos), youtube.readonly (leer el canal) y yt-analytics.readonly (leer la retención). No borramos, editamos ni comentamos nada en tu canal.",
           "El uso y la transferencia de la información recibida de las API de Google se ajusta a la Política de datos de usuario de los servicios de API de Google (https://developers.google.com/terms/api-services-user-data-policy), incluidos los requisitos de uso limitado.",
-          "Puedes revocar el acceso de DaClipLab en cualquier momento desde la configuración de seguridad de tu cuenta de Google (https://myaccount.google.com/permissions) o desconectando YouTube en DaClipLab. Al revocarlo, borramos los permisos guardados y las estadísticas leídas de ese canal.",
+          "Puedes revocar el acceso de Daclipy en cualquier momento desde la configuración de seguridad de tu cuenta de Google (https://myaccount.google.com/permissions) o desconectando YouTube en Daclipy. Al revocarlo, borramos los permisos guardados y las estadísticas leídas de ese canal.",
         ],
       },
       {
@@ -70,7 +70,7 @@ export const privacy: Record<"es" | "en", Doc> = {
         title: "Conservación y eliminación de datos",
         body: [
           "Guardamos tus datos mientras tu cuenta esté activa. Al desconectar una cuenta (YouTube, Facebook, Instagram o TikTok) borramos de inmediato sus permisos y sus estadísticas. Al borrar un canal o tu cuenta borramos su contenido y sus datos asociados.",
-          "Para pedir la eliminación completa de tus datos, incluidos los que recibimos de Facebook, Instagram o TikTok: escribe a hello@dalfex.com desde el correo de tu cuenta con el asunto «Eliminar mis datos». Lo hacemos en un máximo de 30 días y te confirmamos por correo. También puedes quitar el acceso de DaClipLab desde la configuración de apps de Facebook, Instagram o TikTok.",
+          "Para pedir la eliminación completa de tus datos, incluidos los que recibimos de Facebook, Instagram o TikTok: escribe a hello@dalfex.com desde el correo de tu cuenta con el asunto «Eliminar mis datos». Lo hacemos en un máximo de 30 días y te confirmamos por correo. También puedes quitar el acceso de Daclipy desde la configuración de apps de Facebook, Instagram o TikTok.",
         ],
       },
       {
@@ -81,7 +81,7 @@ export const privacy: Record<"es" | "en", Doc> = {
       },
       {
         title: "Menores de edad",
-        body: ["DaClipLab no está dirigido a menores de 18 años."],
+        body: ["Daclipy no está dirigido a menores de 18 años."],
       },
       {
         title: "Cambios",
@@ -93,21 +93,21 @@ export const privacy: Record<"es" | "en", Doc> = {
     title: "Privacy Policy — Dalfex",
     heading: "Privacy Policy",
     intro:
-      "This policy explains which data Dalfex processes in DaClipLab (daclip.dalfex.com) and its other products, what we use it for and how to have it deleted. Write to hello@dalfex.com with any question.",
+      "This policy explains which data Dalfex processes in Daclipy (daclipy.com) and its other products, what we use it for and how to have it deleted. Write to hello@dalfex.com with any question.",
     sections: [
       {
         title: "Who we are",
         body: [
-          "Dalfex is a software studio based in Colombia. DaClipLab is our tool to create short videos with artificial intelligence and publish them to the accounts the user connects. The data controller is Dalfex, contact hello@dalfex.com.",
+          "Dalfex is a software studio based in Colombia. Daclipy is our tool to create short videos with artificial intelligence and publish them to the accounts the user connects. The data controller is Dalfex, contact hello@dalfex.com.",
         ],
       },
       {
         title: "Data we collect",
         body: [
           "• Account: name, email and profile picture when you sign in with Google or with email and password.",
-          "• Content: the ideas, texts, images, videos and voice recordings you upload, and the videos DaClipLab generates for you.",
+          "• Content: the ideas, texts, images, videos and voice recordings you upload, and the videos Daclipy generates for you.",
           "• Connected accounts: when you connect YouTube, Facebook, Instagram or TikTok, we store the access grants (tokens) that platform gives us and the channel or account name and identifier.",
-          "• YouTube statistics: if you connect YouTube, we read the audience retention of the videos you published from DaClipLab to show it to you.",
+          "• YouTube statistics: if you connect YouTube, we read the audience retention of the videos you published from Daclipy to show it to you.",
           "• Payments: processed by Polar (polar.sh). We do not store your card details.",
           "• Technical usage: error and usage logs needed to run and protect the service.",
         ],
@@ -122,10 +122,10 @@ export const privacy: Record<"es" | "en", Doc> = {
         id: "youtube",
         title: "YouTube and Google API Services",
         body: [
-          "DaClipLab uses the YouTube API Services to upload the videos you choose to publish and to read the audience retention of those videos. By connecting YouTube you agree to the YouTube Terms of Service (https://www.youtube.com/t/terms), and the Google Privacy Policy applies (https://policies.google.com/privacy).",
+          "Daclipy uses the YouTube API Services to upload the videos you choose to publish and to read the audience retention of those videos. By connecting YouTube you agree to the YouTube Terms of Service (https://www.youtube.com/t/terms), and the Google Privacy Policy applies (https://policies.google.com/privacy).",
           "We request youtube.upload (upload videos), youtube.readonly (read the channel) and yt-analytics.readonly (read retention). We never delete, edit or comment on anything in your channel.",
           "Dalfex's use and transfer of information received from Google APIs adheres to the Google API Services User Data Policy (https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.",
-          "You can revoke DaClipLab's access at any time from your Google Account security settings (https://myaccount.google.com/permissions) or by disconnecting YouTube in DaClipLab. When access is revoked we delete the stored grants and the statistics read for that channel.",
+          "You can revoke Daclipy's access at any time from your Google Account security settings (https://myaccount.google.com/permissions) or by disconnecting YouTube in Daclipy. When access is revoked we delete the stored grants and the statistics read for that channel.",
         ],
       },
       {
@@ -151,7 +151,7 @@ export const privacy: Record<"es" | "en", Doc> = {
         title: "Retention and data deletion",
         body: [
           "We keep your data while your account is active. Disconnecting an account (YouTube, Facebook, Instagram or TikTok) deletes its grants and statistics immediately. Deleting a channel or your account deletes its content and associated data.",
-          "To request full deletion of your data, including data received from Facebook, Instagram or TikTok: email hello@dalfex.com from your account's address with the subject \"Delete my data\". We complete it within 30 days and confirm by email. You can also remove DaClipLab's access from the app settings of Facebook, Instagram or TikTok.",
+          "To request full deletion of your data, including data received from Facebook, Instagram or TikTok: email hello@dalfex.com from your account's address with the subject \"Delete my data\". We complete it within 30 days and confirm by email. You can also remove Daclipy's access from the app settings of Facebook, Instagram or TikTok.",
         ],
       },
       {
@@ -162,7 +162,7 @@ export const privacy: Record<"es" | "en", Doc> = {
       },
       {
         title: "Children",
-        body: ["DaClipLab is not directed to anyone under 18."],
+        body: ["Daclipy is not directed to anyone under 18."],
       },
       {
         title: "Changes",
@@ -177,12 +177,12 @@ export const terms: Record<"es" | "en", Doc> = {
     title: "Términos de servicio — Dalfex",
     heading: "Términos de servicio",
     intro:
-      "Estos términos regulan el uso de DaClipLab (daclip.dalfex.com) y de los demás productos de Dalfex. Al crear una cuenta los aceptas.",
+      "Estos términos regulan el uso de Daclipy (daclipy.com) y de los demás productos de Dalfex. Al crear una cuenta los aceptas.",
     sections: [
       {
         title: "El servicio",
         body: [
-          "DaClipLab crea videos cortos con inteligencia artificial a partir de tus ideas y tu material, y puede publicarlos en las cuentas de YouTube, Facebook, Instagram y TikTok que conectes.",
+          "Daclipy crea videos cortos con inteligencia artificial a partir de tus ideas y tu material, y puede publicarlos en las cuentas de YouTube, Facebook, Instagram y TikTok que conectes.",
         ],
       },
       {
@@ -200,7 +200,7 @@ export const terms: Record<"es" | "en", Doc> = {
       {
         title: "Uso aceptable",
         body: [
-          "No puedes usar DaClipLab para contenido ilegal, engañoso, de odio, sexual con menores, que suplante a personas reales o que infrinja derechos de autor, ni para hacer que personas reales vivas digan cosas que no dijeron. Podemos suspender cuentas que incumplan estas reglas.",
+          "No puedes usar Daclipy para contenido ilegal, engañoso, de odio, sexual con menores, que suplante a personas reales o que infrinja derechos de autor, ni para hacer que personas reales vivas digan cosas que no dijeron. Podemos suspender cuentas que incumplan estas reglas.",
         ],
       },
       {
@@ -243,12 +243,12 @@ export const terms: Record<"es" | "en", Doc> = {
     title: "Terms of Service — Dalfex",
     heading: "Terms of Service",
     intro:
-      "These terms govern the use of DaClipLab (daclip.dalfex.com) and the other Dalfex products. By creating an account you accept them.",
+      "These terms govern the use of Daclipy (daclipy.com) and the other Dalfex products. By creating an account you accept them.",
     sections: [
       {
         title: "The service",
         body: [
-          "DaClipLab creates short videos with artificial intelligence from your ideas and material and can publish them to the YouTube, Facebook, Instagram and TikTok accounts you connect.",
+          "Daclipy creates short videos with artificial intelligence from your ideas and material and can publish them to the YouTube, Facebook, Instagram and TikTok accounts you connect.",
         ],
       },
       {
@@ -266,7 +266,7 @@ export const terms: Record<"es" | "en", Doc> = {
       {
         title: "Acceptable use",
         body: [
-          "You may not use DaClipLab for illegal, deceptive or hateful content, sexual content involving minors, content impersonating real people or infringing copyright, or to make living real people say things they did not say. We may suspend accounts that break these rules.",
+          "You may not use Daclipy for illegal, deceptive or hateful content, sexual content involving minors, content impersonating real people or infringing copyright, or to make living real people say things they did not say. We may suspend accounts that break these rules.",
         ],
       },
       {
