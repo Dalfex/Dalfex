@@ -1,0 +1,9 @@
+---
+import LegalPage from "../components/LegalPage.astro";
+import { terms as doc, UPDATED } from "../legal";
+
+const d = doc.en;
+---
+
+<LegalPage lang="en" path="/terms" title={d.title} heading={d.heading} updated={UPDATED.en} intro={d.intro}
+  sections={d.sections} altHref="/es/terminos" altLabel="Español" />

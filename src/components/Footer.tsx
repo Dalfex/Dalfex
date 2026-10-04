@@ -96,6 +96,14 @@ export default function Footer({ lang }: { lang: Lang }) {
         <div className="mt-12 flex flex-col items-center gap-3 border-t border-ink/10 pt-6 md:flex-row md:justify-between">
           <p className="text-[11px] text-ink/55/30">
             &copy; {new Date().getFullYear()} Dalfex. {tr(ui.footer.rights, lang)}
+            {" · "}
+            <a href={lang === "es" ? "/es/privacidad" : "/privacy"} className="hover:text-ink">
+              {lang === "es" ? "Privacidad" : "Privacy"}
+            </a>
+            {" · "}
+            <a href={lang === "es" ? "/es/terminos" : "/terms"} className="hover:text-ink">
+              {lang === "es" ? "Términos" : "Terms"}
+            </a>
           </p>
           <p className="text-[11px] text-ink/55/30">
             {tr(ui.footer.closing, lang)}

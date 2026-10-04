@@ -1,0 +1,70 @@
+---
+// A legal document (privacy policy, terms): a plain readable column, the other language one link away.
+import Layout from "../layouts/Layout.astro";
+import type { Lang } from "../i18n/config";
+
+interface Section {
+  id?: string;
+  title: string;
+  body: string[]; // paragraphs; a line starting with "• " is a bullet
+}
+
+interface Props {
+  lang: Lang;
+  path: string;
+  title: string;
+  heading: string;
+  updated: string;
+  intro: string;
+  sections: Section[];
+  altHref: string;
+  altLabel: string;
+}
+
+const { lang, path, title, heading, updated, intro, sections, altHref, altLabel } = Astro.props;
+const home = lang === "es" ? "/es" : "/";
+
+function linkify(text: string): string {
+  const esc = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  return esc
+    .replace(/(https?:\/\/[^\s)]+)/g, '<a href="$1" rel="noopener" class="underline decoration-ink/30 underline-offset-2 hover:decoration-ink">$1</a>')
+    .replace(/([a-z]+@dalfex\.com)/g, '<a href="mailto:$1" class="underline decoration-ink/30 underline-offset-2 hover:decoration-ink">$1</a>');
+}
+---
+
+<Layout title={title} lang={lang} path={path} description={intro}>
+  <main class="bg-field min-h-screen">
+    <article class="mx-auto max-w-2xl px-6 py-16 md:py-24">
+      <nav class="mb-12 flex items-center justify-between text-sm">
+        <a href={home} class="flex items-center gap-2 text-ink/60 hover:text-ink">
+          <img src="/logo-mark.svg" alt="" class="h-6 w-6 dark:hidden" />
+          <img src="/logo-mark-light.svg" alt="" class="hidden h-6 w-6 dark:block" />
+          Dalfex
+        </a>
+        <a href={altHref} class="font-mono text-xs uppercase tracking-[0.2em] text-ink/50 hover:text-ink">{altLabel}</a>
+      </nav>
+      <h1 class="text-4xl font-semibold tracking-tight text-ink md:text-5xl" style="text-wrap: balance">{heading}</h1>
+      <p class="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-ink/45">{updated}</p>
+      <p class="mt-8 text-lg leading-relaxed text-ink/75" set:html={linkify(intro)} />
+      {
+        sections.map((s, i) => (
+          <section id={s.id} class="mt-12 scroll-mt-24">
+            <h2 class="text-xl font-semibold text-ink">
+              <span class="mr-2 font-mono text-sm text-ink/35">{String(i + 1).padStart(2, "0")}</span>
+              {s.title}
+            </h2>
+            <div class="mt-4 space-y-3 leading-relaxed text-ink/70">
+              {s.body.map((p) =>
+                p.startsWith("• ") ? (
+                  <p class="pl-5 -indent-4" set:html={"• " + linkify(p.slice(2))} />
+                ) : (
+                  <p set:html={linkify(p)} />
+                ),
+              )}
+            </div>
+          </section>
+        ))
+      }
+    </article>
+  </main>
+</Layout>

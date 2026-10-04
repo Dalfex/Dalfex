@@ -6,16 +6,17 @@ interface Props {
   title: string;
   lang?: Lang;
   description?: string;
+  path?: string; // a page other than the home: its own canonical URL
 }
 
-const { title, lang = "en", description } = Astro.props;
+const { title, lang = "en", description, path } = Astro.props;
 
 const defaultDescription =
   lang === "es"
     ? "Dalfex — estudio tecnológico colombiano que construye SaaS con IA, apps móviles y automatización."
     : "Dalfex — Colombia-based tech studio building AI-powered SaaS, mobile apps, and automation.";
 
-const canonical = lang === "es" ? "https://dalfex.com/es" : "https://dalfex.com/";
+const canonical = path ? `https://dalfex.com${path}` : lang === "es" ? "https://dalfex.com/es" : "https://dalfex.com/";
 
 const organizationSchema = {
   "@context": "https://schema.org",
